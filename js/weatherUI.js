@@ -2,9 +2,16 @@ export function renderWeatherUI(data) {
   const resultDiv = document.getElementById("result");
   const { main, weather, name, wind, visibility } = data;
 
+  let km;
+  if (visibility % 1000 === 0) {
+    km = visibility / 1000 + " km";
+  } else {
+    km = visibility + " m";
+  }
+
   resultDiv.innerHTML = `
     <h3>Thời tiết tại ${name}</h3>
-    <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="icon thời tiết">
+    <div><img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="icon thời tiết"></div>
     <table class="weather-table" border="1">
       <tr>
         <th>Thông tin</th>
@@ -36,7 +43,7 @@ export function renderWeatherUI(data) {
       </tr>
       <tr>
         <td><strong>Tầm nhìn xa</strong></td>
-        <td>${visibility} m</td>
+        <td>${km}</td>
       </tr>
     </table>
   `;
@@ -44,5 +51,5 @@ export function renderWeatherUI(data) {
 
 export function renderErrorUI(error) {
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `<p style="color:red; height:0;">${error.message}</p>`;
+  resultDiv.innerHTML = `<p class="err">${error.message}</p>`;
 }
