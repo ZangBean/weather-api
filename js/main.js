@@ -25,8 +25,7 @@ export function getWeather() {
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=vi`
     )
       .then((response) => {
-        if (!response.ok)
-          throw new Error("<strong>Không tìm thấy thành phố!</strong>");
+        if (!response.ok) throw new Error("Không tìm thấy thành phố!");
         return response.json();
       })
       .then((data) => {
