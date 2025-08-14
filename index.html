@@ -9,7 +9,6 @@
   </head>
   <body>
     <div id="loading-screen">
-      <!-- Icon mặt trời (SVG) -->
       <svg
         id="loading-icon"
         viewBox="0 0 64 64"
@@ -34,10 +33,13 @@
 
     <div class="container bg-moderate">
       <div class="snow"></div>
+
+      <canvas id="windCanvas"></canvas>
+
       <div class="form-box">
         <h2>Tra cứu thời tiết</h2>
         <input type="text" id="cityInput" placeholder="Nhập tên thành phố" />
-        <button onclick="getWeather()">Xem thời tiết</button>
+        <button>Xem thời tiết</button>
         <div id="result"></div>
       </div>
 
@@ -56,6 +58,6 @@
       </div>
     </div>
 
-    <script src="./main.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
