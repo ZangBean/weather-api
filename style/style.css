@@ -91,7 +91,8 @@
   }
 }
 
-.container .snow {
+.container .snow,
+#windCanvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -124,11 +125,12 @@ h2 {
 }
 
 .form-box img {
-  border: 1px solid #ccc;
   border-radius: 50%;
   display: block;
   margin: 20px auto;
-  filter: drop-shadow(2px 4px 6px black);
+  filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8)) brightness(0)
+    saturate(100%) invert(19%) sepia(93%) saturate(7481%) hue-rotate(4deg)
+    brightness(95%) contrast(110%);
 }
 
 .form-box input[type="text"] {
