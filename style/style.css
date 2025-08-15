@@ -132,6 +132,7 @@
   padding: 8px 32px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border: 1px solid #e6e6e6;
 }
 
 #historyList li:hover {
