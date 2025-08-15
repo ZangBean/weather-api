@@ -34,14 +34,6 @@ export function renderWeatherUI(data) {
         <td>${wind.speed} m/s</td>
       </tr>
       <tr>
-        <td><strong>Hướng gió</strong></td>
-        <td>${wind.deg}°</td>
-      </tr>
-      <tr>
-        <td><strong>Gió giật</strong></td>
-        <td>${wind.gust} m/s</td>
-      </tr>
-      <tr>
         <td><strong>Tầm nhìn xa</strong></td>
         <td>${km}</td>
       </tr>
