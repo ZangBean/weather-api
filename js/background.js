@@ -18,7 +18,7 @@ class Snowflake {
     this.wind = (Math.random() * 10 - 5) * (snowCanvas.width / 100);
     this.speed = Math.random() * 4 + 4;
     this.opacity = Math.random() * 0.5 + 0.5;
-    this.size = Math.random() * 10 + 8;
+    this.size = Math.random() * 10 + 10;
   }
 
   update(deltaTime) {
