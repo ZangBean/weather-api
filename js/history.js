@@ -24,7 +24,8 @@ export function renderHistory() {
     const li = document.createElement("li");
     const spanCity = document.createElement("span");
     spanCity.textContent = city;
-    li.addEventListener("click", () => {
+    li.addEventListener("click", (e) => {
+      e.stopPropagation();
       document.getElementById("cityInput").value = city;
       getWeather();
     });

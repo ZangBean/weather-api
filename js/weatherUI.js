@@ -18,23 +18,38 @@ export function renderWeatherUI(data) {
         <th>Giá trị</th>
       </tr>
       <tr>
-        <td><strong>Mô tả</strong></td>
+        <td>
+          <i class="fa-solid fa-book"></i>
+          <strong>Mô tả</strong>
+        </td>
         <td>${weather[0].description}</td>
       </tr>
       <tr>
-        <td><strong>Nhiệt độ</strong></td>
+        <td>
+          <i class="fa-solid fa-temperature-high"></i>
+          <strong>Nhiệt độ</strong>
+        </td>
         <td>${main.temp}°C</td>
       </tr>
       <tr>
-        <td><strong>Độ ẩm</strong></td>
+        <td>
+          <i class="fa-solid fa-droplet"></i>
+          <strong>Độ ẩm</strong>
+        </td>
         <td>${main.humidity}%</td>
       </tr>
       <tr>
-        <td><strong>Tốc độ gió</strong></td>
+        <td>
+          <i class="fa-solid fa-wind"></i>
+          <strong>Tốc độ gió</strong>
+        </td>
         <td>${wind.speed} m/s</td>
       </tr>
       <tr>
-        <td><strong>Tầm nhìn xa</strong></td>
+        <td>
+          <i class="fa-regular fa-eye"></i>
+          <strong>Tầm nhìn xa</strong>
+        </td>
         <td>${km}</td>
       </tr>
     </table>

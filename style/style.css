@@ -241,9 +241,10 @@ iframe {
 
 .weather-table th,
 .weather-table td {
-  padding: 12px 20px;
+  padding: 10px;
   text-align: left;
   text-transform: capitalize;
+  width: 50%;
 }
 
 .weather-table thead {
@@ -264,6 +265,11 @@ iframe {
 .weather-table tbody tr:hover {
   background-color: #d7f0ff;
   cursor: default;
+}
+
+.weather-table i {
+  color: #8bcfec;
+  margin-right: 10px;
 }
 
 #clock {
