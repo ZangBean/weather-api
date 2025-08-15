@@ -4,6 +4,7 @@ import { loader } from "./loader.js";
 import { updateTime } from "./time.js";
 import { Events } from "./events.js";
 import { renderWeatherUI, renderErrorUI } from "./weatherUI.js";
+import { saveSearchHistory, renderHistory } from "./history.js";
 
 //Loading screen
 loader();
@@ -33,6 +34,10 @@ export function getWeather() {
         const lon = data.coord.lon;
         const lat = data.coord.lat;
         const timezone = data.timezone;
+
+        //Render and save search history
+        saveSearchHistory(city);
+        renderHistory();
 
         //Update time
         const utc =

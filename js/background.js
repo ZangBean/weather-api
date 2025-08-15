@@ -1,31 +1,64 @@
 // Create Snow flake
 let snowInterval;
+const snowCanvas = document.getElementById("snowCanvas");
+const snowCtx = snowCanvas.getContext("2d");
+
+function resizeCanvas() {
+  snowCanvas.width = window.innerWidth;
+  snowCanvas.height = window.innerHeight;
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+class Snowflake {
+  constructor() {
+    this.x = Math.random() * snowCanvas.width;
+    this.y = 0;
+    this.wind = (Math.random() * 10 - 5) * (snowCanvas.width / 100);
+    this.speed = Math.random() * 4 + 4;
+    this.opacity = Math.random() * 0.5 + 0.5;
+    this.size = Math.random() * 10 + 8;
+  }
+
+  update(deltaTime) {
+    this.y += this.speed * deltaTime * 10;
+    this.x += this.wind * deltaTime;
+  }
+
+  draw() {
+    snowCtx.beginPath();
+    snowCtx.globalAlpha = this.opacity;
+    snowCtx.font = `${this.size}px serif`;
+    snowCtx.fillText("❄", this.x, this.y);
+    snowCtx.fillStyle = "white";
+    snowCtx.closePath();
+  }
+}
+
+const snowflakes = [];
+
 function createSnowflake() {
-  const snowflake = document.createElement("div");
-  snowflake.classList.add("snowflake");
-  snowflake.innerHTML = "❄";
+  snowflakes.push(new Snowflake());
+}
 
-  const startX = Math.random() * 100;
-  const wind = Math.random() * 10 - 5;
-  const endX = Math.min(100, Math.max(0, startX + wind));
-
-  snowflake.style.setProperty("--startX", startX + "vw");
-  snowflake.style.setProperty("--endX", endX + "vw");
-  snowflake.style.animationDuration = Math.random() * 4 + 4 + "s";
-  snowflake.style.opacity = Math.random() * 0.5 + 0.5;
-  snowflake.style.fontSize = Math.random() * 10 + 8 + "px";
-
-  const snow = document.querySelector(".snow");
-  snow.appendChild(snowflake);
-
-  snowflake.addEventListener("animationend", () => {
-    snowflake.remove();
+function animate() {
+  snowCtx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
+  const deltaTime = 1 / 60;
+  snowflakes.forEach((snowflake, index) => {
+    snowflake.update(deltaTime);
+    snowflake.draw();
+    if (snowflake.y > snowCanvas.height) {
+      snowflakes.splice(index, 1);
+    }
   });
+  requestAnimationFrame(animate);
 }
 
 function startSnow() {
   if (!snowInterval) {
-    snowInterval = setInterval(createSnowflake, 200);
+    snowInterval = setInterval(createSnowflake, 100);
+    animate();
   }
 }
 
@@ -33,7 +66,8 @@ function stopSnow() {
   if (snowInterval) {
     clearInterval(snowInterval);
     snowInterval = null;
-    document.querySelectorAll(".snowflake").forEach((flake) => flake.remove());
+    snowflakes.length = 0;
+    snowCtx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
   }
 }
 

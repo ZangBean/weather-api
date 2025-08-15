@@ -1,4 +1,5 @@
 import { getWeather } from "./main.js";
+import { renderHistory } from "./history.js";
 
 export const Events = {
   init() {
@@ -16,5 +17,8 @@ export const Events = {
           getWeather();
         }
       });
+
+    //Render search history
+    renderHistory();
   },
 };
