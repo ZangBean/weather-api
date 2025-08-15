@@ -6,6 +6,10 @@
     <title>Thời tiết</title>
     <link rel="shortcut icon" href="img/meteorology.png" type="image/x-icon" />
     <link rel="stylesheet" href="./style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <div id="loading-screen">
@@ -32,14 +36,20 @@
     </div>
 
     <div class="container bg-moderate">
-      <div class="snow"></div>
+      <canvas id="snowCanvas" class="snow"></canvas>
       <canvas id="windCanvas"></canvas>
 
       <div class="form-box">
         <h2>Tra cứu thời tiết</h2>
-        <input type="text" id="cityInput" placeholder="Nhập tên địa điểm" />
+        <input
+          type="text"
+          autocomplete="off"
+          id="cityInput"
+          placeholder="Nhập tên địa điểm"
+        />
         <div class="box"></div>
-        <button>Xem thời tiết</button>
+        <button class="search">Xem thời tiết</button>
+        <ul id="historyList"></ul>
         <div id="result"></div>
       </div>
 
