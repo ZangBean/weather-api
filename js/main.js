@@ -1,5 +1,5 @@
 import { updateMap } from "./map.js";
-import { updateWeatherUI } from "./background.js";
+import { updateWeatherUI } from "./animate/background.js";
 import { loader } from "./loader.js";
 import { updateTime } from "./time.js";
 import { Events } from "./events.js";
