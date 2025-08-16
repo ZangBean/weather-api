@@ -1,5 +1,5 @@
-import { startWind, stopWind } from "./animateWind.js";
-import { startSnow, stopSnow } from "./animateSnow.js";
+import { startWind, stopWind } from "./animate/animateWind.js";
+import { startSnow, stopSnow } from "./animate/animateSnow.js";
 
 // Update background
 export function updateWeatherUI(temp) {
