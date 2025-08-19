@@ -15,7 +15,7 @@ Events.init();
 //Weather API
 export function getWeather() {
   const apiKey = "2e88e4d878504ff6fb17d0de34ec9a3c";
-  const city = document.getElementById("cityInput").value;
+  const city = document.getElementById("cityInput").value.trim();
   const button = document.querySelector(".form-box button");
 
   button.innerText = "Đang tải...";

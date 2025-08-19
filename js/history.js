@@ -4,7 +4,15 @@ import { getWeather } from "./main.js";
 export function saveSearchHistory(city) {
   let history = JSON.parse(localStorage.getItem("weatherHistory")) || [];
 
-  history = history.filter((item) => item.toLowerCase() !== city.toLowerCase());
+  const normalizeString = (str) =>
+    str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+
+  history = history.filter(
+    (item) => normalizeString(item) !== normalizeString(city)
+  );
   history.unshift(city);
 
   if (history.length > 10) history.pop();
